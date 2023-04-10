@@ -1,0 +1,9 @@
+{
+    "json": {
+        "()": "pythonjsonlogger.jsonlogger.JsonFormatter",
+        "format": "{\"level\": \"%(levelname)s\", \"message\": \"%(message)s\", \"loggerName\": \"%(name)s\",\"timestamp\": \"%(asctime)s\", \"module\": \"%(module)s\", \"filename\": \"%(filename)s\", \"lineNumber\": \"%(lineno)s\", \"functionName\": \"%(funcName)s\", \"exception\": \"%(exc_info)s\", \"stackTrace\": \"%(stack_info)s\", \"extra\": \"%(extra)s}"
+    },
+    "local_formatter": {
+        "format": "[%(asctime)s][%(levelname)s]: %(message)s"
+    }
+}

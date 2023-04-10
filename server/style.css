@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+}
+body {
+    width: max-content;
+    width: 300px;
+    height: 300px;
+}
+button {
+    background-color: red;
+    color: pink;
+    border-radius: 10px;
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    font-size: large;
+    margin: auto;
+    display: block;
+    border-color: pink;
+}
+button[disabled] {
+    background-color: gray;
+    color: white;
+    border-radius: 8px;
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    font-size: large;
+    margin: auto;
+    display: block;
+    border-color: lightpink;
+}
+p {
+    font-size: medium;
+}

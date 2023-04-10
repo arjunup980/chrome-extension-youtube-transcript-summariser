@@ -1,0 +1,16 @@
+{
+    "transcript": {
+        "handlers": [
+            "logger_handler"
+        ],
+        "level": "INFO",
+        "propagate": false
+    },
+    "transcriptApp": {
+        "handlers": [
+            "logger_handler"
+        ],
+        "level": "INFO",
+        "propagate": false
+    }
+}

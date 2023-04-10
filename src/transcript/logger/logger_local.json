@@ -1,0 +1,16 @@
+{
+    "transcript": {
+        "handlers": [
+            "local_logger_handler"
+        ],
+        "level": "DEBUG",
+        "propagate": false
+    },
+    "transcriptApp": {
+        "handlers": [
+            "local_logger_handler"
+        ],
+        "level": "DEBUG",
+        "propagate": false
+    }
+}

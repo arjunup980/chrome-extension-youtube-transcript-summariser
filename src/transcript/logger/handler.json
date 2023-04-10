@@ -1,0 +1,12 @@
+{
+    "logger_handler": {
+        "level": "DEBUG",
+        "class": "logging.StreamHandler",
+        "formatter": "json"
+    },
+    "local_logger_handler": {
+        "level": "DEBUG",
+        "class": "logging.StreamHandler",
+        "formatter": "local_formatter"
+    }
+}
