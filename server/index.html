@@ -2,13 +2,23 @@
 <html>
     <head>
         <title>Youtube Transcript Summariser</title>
-       <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1>Youtube Video Summariser</h1>
-        <button id="summarise" type="button">Summarise</button>
+        <div class="actions">
+            <button id="summarise" type="button">Summarise</button>
+            <span class="material-icons" id="refresh-btn">refresh</span>
+            <span></span>
+            <span class="material-icons" id="copy-btn">content_copy</span>
+        </div>
         <br/>
         <p id="output"></p>
         <script src="index.js"></script>
     </body>
 </html>
+
+
+
+

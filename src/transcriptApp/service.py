@@ -10,6 +10,7 @@ from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
 from heapq import nlargest
 import ssl
+from django.core.cache import cache
 
 from transcript.decorators import log_time
 
@@ -114,11 +115,17 @@ class TranscriptService:
         return summary
 
     @log_time
-    def get_summary(self, youtube_url):
+    def get_summary(self, youtube_url, refresh=False):
 
         # Extract the video ID from the URL using regex
         match = re.search(r'(?<=v=)[^&]+', youtube_url)
         video_id = match.group(0) if match else None
+        
+        # return response from cache if available
+        summary=cache.get(video_id)
+        if summary and not refresh:
+            return {"summary": summary}
+
 
         if not video_id:
             logger.error(f"Invalid YouTube URL: {youtube_url}")
@@ -134,12 +141,14 @@ class TranscriptService:
         try:
             title = pytube.YouTube(f'https://www.youtube.com/watch?v={video_id}').title
         except Exception as exc:
-            logger.warning("Unable to get video title: {exc}")
+            logger.warning(f"Unable to get video title: {exc}")
             title = ""
             
         summary = self.get_openai_summary(text=nlp_summary[:3000], title=title)
 
+        # set the cache if summary is not null
+        if len(summary) > 0:
+            cache.set(video_id, summary, timeout=86400)
+            
         # Return the OpenAI response
-        return summary
-
-
+        return {"summary": summary}
